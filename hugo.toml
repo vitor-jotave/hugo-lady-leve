@@ -1,6 +1,6 @@
 baseURL = "https://example.org"
 
-disableKinds = ["page", "section", "taxonomy", "term"]
+disableKinds = ["section", "taxonomy", "term"]
 
 [module]
   [module.hugoVersion]
