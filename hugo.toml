@@ -1,4 +1,4 @@
-baseURL = "https://hugo-lady-leve.pages.dev"
+baseURL = "https://hugo.joaovitor.art"
 
 disableKinds = ["section", "taxonomy", "term"]
 
