@@ -80,7 +80,7 @@
                 {{ $thumbnailURL := printf "https://img.youtube.com/vi/%s/maxresdefault.jpg" .id }}
                 {{ with resources.GetRemote $thumbnailURL }}
                     {{ $processedThumb := .Resize "640x360 webp q80" }}
-                    <div class="relative overflow-hidden shadow-lg bg-neutral-900 aspect-video min-h-[360px] youtube-video-container"
+                    <div class="relative overflow-hidden shadow-lg bg-neutral-900 aspect-video min-h-[240px] youtube-video-container"
                         data-video-id="{{ $video.id }}" data-video-title="{{ $video.title }}">
                         <img src="{{ $processedThumb.RelPermalink }}" 
                              alt="{{ $video.title }}"
