@@ -42,8 +42,8 @@ disableKinds = ["section", "taxonomy", "term"]
   quality = 75
   resampleFilter = "Lanczos"
 
-[server]
-  [[server.headers]]
-    for = '/**'
-    [server.headers.values]
-      Content-Security-Policy = 'default-src "self";'
+[security]
+  enableInlineShortcodes = false
+  [security.http]
+    methods = ['GET']
+    urls = ['https://img.youtube.com/.+']
