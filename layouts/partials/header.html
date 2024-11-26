@@ -1,0 +1,20 @@
+<meta charset="utf-8" />
+<title>
+    {{ .Title }}
+</title>
+<meta name="description" content="{{ .Description }}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{{/* Google Fonts preconnect */}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+
+{{/* styles */}}
+{{ $options := dict "inlineImports" true }}
+{{ $styles := resources.Get "css/styles.css" }}
+{{ $styles = $styles | resources.PostCSS $options }}
+{{ if hugo.IsProduction }}
+{{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
+{{ end }}
+<link href="{{ $styles.RelPermalink }}" rel="stylesheet" />

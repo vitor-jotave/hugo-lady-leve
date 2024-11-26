@@ -1,0 +1,32 @@
+{
+    "informacoes_links": [
+      {
+        "title": "Entrega",
+        "link": "/entrega"
+      },
+      {
+        "title": "Pagamento e Envio",
+        "link": "/pagamento-envio"
+      },
+      {
+        "title": "Pagamento Seguro",
+        "link": "/pagamento-seguro"
+      },
+      {
+        "title": "Política de Promoções",
+        "link": "/politica-promocoes"
+      },
+      {
+        "title": "Política de Cookies",
+        "link": "/politica-cookies"
+      },
+      {
+        "title": "Política Privacidade",
+        "link": "/politica-privacidade"
+      },
+      {
+        "title": "Termos e Condições",
+        "link": "/termos-condicoes"
+      }
+    ]
+  }
