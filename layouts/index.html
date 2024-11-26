@@ -28,7 +28,25 @@
             <div class="flex flex-col items-center justify-center gap-8">
                 <div class="flex flex-col items-center justify-center gap-4 md:flex-row">
                     <div class="w-full">
-                        <img src="/images/capa-lady-leve_1024x639.webp" alt="Lady Leve Products" class="w-full">
+                        {{ $hero := .Resources.GetMatch .Params.hero_image }}
+                        {{ with $hero }}
+                            {{ $image1024 := .Resize "1024x webp q80 Lanczos" | images.Filter (images.Contrast 29) }}
+                            {{ $image768 := .Resize "768x webp q80 Lanczos" | images.Filter (images.Contrast 29) }}
+                            {{ $image640 := .Resize "640x webp q80 Lanczos" | images.Filter (images.Contrast 29) }}
+                            <img src="{{ $image1024.RelPermalink }}"
+                                 srcset="{{ $image640.RelPermalink }} 640w,
+                                         {{ $image768.RelPermalink }} 768w,
+                                         {{ $image1024.RelPermalink }} 1024w"
+                                 sizes="(max-width: 640px) 640px,
+                                        (max-width: 768px) 768px,
+                                        1024px"
+                                 alt="Lady Leve Products"
+                                 width="{{ $image1024.Width }}"
+                                 height="{{ $image1024.Height }}"
+                                 loading="eager"
+                                 decoding="async"
+                                 class="w-full">
+                        {{ end }}
                     </div>
                 </div>
 

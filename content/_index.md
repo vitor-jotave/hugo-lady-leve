@@ -1,5 +1,6 @@
 ---
 title: Lady Leve - Oferta Especial
+hero_image: images/capa-lady-leve_1024x639.webp
 
 videos:
   - id: "9vBTeCFhVz8"
