@@ -15,11 +15,11 @@
     <div class="max-w-5xl px-4 pb-8 mx-auto">
 
         <div class="max-w-5xl pt-4 mx-auto mb-12 text-center">
-            <h1 class="my-4 text-[40px] font-extrabold text-green-500 leading-tight ">
+            <h1 class="my-4 text-2xl md:text-[40px] font-extrabold text-green-500 leading-tight">
                 Lady Leve auxilia na redução de medidas com apenas
                 <span class="px-3 text-white bg-orange-500">2 cápsulas por dia</span>
             </h1>
-            <p class="text-[34px] font-extrabold text-orange-500">
+            <p class="text-2xl md:text-[34px] font-extrabold text-orange-500">
                 Com saúde e segurança!
             </p>
         </div>
@@ -41,10 +41,10 @@
         </div>
 
         <!-- Separador -->
-        <div class="px-4 mt-24 mb-16">
+        <div class="px-4 mt-16 mb-16 md:mt-24">
             <div class="flex justify-center gap-4 pb-4 overflow-x-auto no-scrollbar">
                 {{ range seq 30 }}
-                <div class="flex-shrink-0 w-3 h-3 bg-green-500 rounded-full md:w-4 md:h-4"></div>
+                <div class="flex-shrink-0 w-4 h-4 bg-green-500 rounded-full"></div>
                 {{ end }}
             </div>
         </div>
@@ -52,8 +52,8 @@
         <!-- Depoimentos -->
         <div>
             <h2 class="flex flex-col mb-12 leading-tight text-center">
-                <span class="text-[34px] font-extrabold text-green-500">DEPOIMENTO REAL</span>
-                <span class="text-[34px] font-extrabold text-orange-500">DE PESSOAS REAIS</span>
+                <span class="text-2xl md:text-[34px] font-extrabold text-green-500">DEPOIMENTO REAL</span>
+                <span class="text-2xl md:text-[34px] font-extrabold text-orange-500">DE PESSOAS REAIS</span>
             </h2>
 
             <div class="grid max-w-4xl grid-cols-1 gap-6 mx-auto md:grid-cols-2">
@@ -78,12 +78,12 @@
 
     <!-- Barra CTA -->
     <div class="p-6 mt-8 bg-green-500">
-        <div class="flex flex-col items-center justify-between gap-4 px-40 md:flex-row">
+        <div class="flex flex-col items-center justify-between gap-4 px-4 md:px-40 md:flex-row">
             <a href="#kits"
-                class="px-10 py-5 text-3xl font-bold text-white uppercase transition-colors bg-orange-500 rounded-lg font-system hover:bg-orange-600">
-                COMPRAR AGORA!
+                class="w-full px-10 py-5 text-2xl font-bold text-white uppercase transition-colors bg-orange-500 rounded-lg md:text-3xl md:w-auto font-system hover:bg-orange-600">
+                COMPRAR AGORA
             </a>
-            <p class="text-xl font-semibold text-white">
+            <p class="text-xl font-semibold text-center text-white md:text-left">
                 O PRÓXIMO DEPOIMENTO PODE SER O SEU...
             </p>
         </div>
@@ -93,7 +93,7 @@
     <div class="px-4 mt-10 mb-8">
         <div class="flex justify-center gap-4 pb-4 overflow-x-auto no-scrollbar">
             {{ range seq 30 }}
-            <div class="flex-shrink-0 w-3 h-3 bg-green-500 rounded-full md:w-4 md:h-4"></div>
+            <div class="flex-shrink-0 w-4 h-4 bg-green-500 rounded-full"></div>
             {{ end }}
         </div>
     </div>
@@ -108,20 +108,20 @@
     </svg>
 
     <!-- Preços -->
-    <div id="kits" class="bg-green-500">
-        <h2 class="pt-10 pb-4 text-4xl font-bold text-center text-white">
+    <div id="kits" class="px-4 bg-green-500 md:px-0">
+        <h2 class="pt-10 pb-4 text-2xl font-bold text-center text-white md:text-4xl">
             ESCOLHA A MELHOR OFERTA PRA VOCÊ
         </h2>
-        <p class="mb-8 text-xl text-center text-white">Aumente os preços exclusivos na nossa loja!</p>
+        <p class="mb-8 text-xl text-center text-white">Aproveite os preços exclusivos de nosso site!</p>
 
-        <div class="grid max-w-5xl grid-cols-1 gap-4 mx-auto md:grid-cols-2 lg:grid-cols-4 lg:[direction:rtl] pb-12">
-            {{ range .Params.products }}
-            <div class="p-3 py-5 text-center bg-white border rounded-lg shadow-lg">
+        <div class="grid max-w-5xl grid-cols-1 gap-4 pb-12 mx-auto md:grid-cols-2 lg:grid-cols-4">
+            {{ $length := len .Params.products }}
+            {{ range $index, $product := .Params.products }}
+            <div class="p-3 py-5 text-center bg-white border rounded-lg shadow-lg md:order-none" style="order: {{ sub $length $index }}">
                 <h3 class="mb-2 text-3xl font-black text-orange-500 font-system">{{ .product_title }}</h3>
-                <h4 class="mb-2 text-sm font-bold text-white bg-green-500 font-system">{{ .product_subtitle }}</h4>
+                <h4 class="mt-4 mb-[-24px] md:mt-0 text-sm font-bold text-white bg-green-500 md:mb-2 font-system">{{ .product_subtitle }}</h4>
                 <img src="{{ .product_image }}" alt="{{ .product_title }}" class="w-full mb-4">
-                <p class="text-xs font-extrabold text-green-500">DE <del class="text-red-500">R$ {{ .product_discount
-                        }}</del> POR APENAS</p>
+                <p class="text-xs font-extrabold text-green-500">DE <del class="text-red-500">R$ {{ .product_discount }}</del> POR APENAS</p>
                 <p class="text-[40px] font-extrabold text-green-500">R$ {{ .product_price }}</p>
                 <p class="mb-4 text-sm font-bold text-neutral-800">ou 12x de R$ {{ .product_divided }}</p>
                 <a href="{{ .product_link }}"
@@ -135,7 +135,6 @@
                      class="mx-auto mt-3 bg-yellow-500 w-36">
             </div>
             {{ end }}
-            <!-- Repeat for other pricing options with correct values -->
         </div>
     </div>
 
@@ -149,12 +148,12 @@
     </svg>
 
     <!-- Garantia -->
-    <div class="flex items-center justify-center gap-16 my-16">
+    <div class="flex flex-col items-center justify-center gap-8 p-4 my-8 md:p-0 md:my-16 md:flex-row md:gap-16">
         <div>
             <img src="/images/garantia30.png.webp" alt="30 dias garantia" class="">
         </div>
         <div>
-            <p class="text-4xl font-extrabold text-center text-green-500">
+            <p class="text-2xl font-extrabold text-center text-green-500 md:text-4xl">
                 Se por algum motivo você<br>
                 não ficar satisfeito com<br>
                 Lady Leve, devolvemos<br>
@@ -162,7 +161,7 @@
             </p>
             <p class="mt-4 mb-6 text-lg text-center text-neutral-800">Seu risco por tentar é ZERO!</p>
             <a href="#kits"
-                class="block px-10 py-4 mx-auto text-2xl font-bold text-white uppercase transition-colors bg-orange-500 rounded-lg w-fit font-system hover:bg-orange-600">
+                class="block px-10 py-4 mx-auto text-2xl font-bold text-center text-white uppercase transition-colors bg-orange-500 rounded-lg w-fit font-system hover:bg-orange-600">
                 QUERO COMPRAR COM GARANTIA
             </a>
         </div>
@@ -170,8 +169,8 @@
 
     <!-- FAQ -->
     <div class="max-w-5xl mx-auto mb-16">
-        <h2 class="mb-10 text-4xl font-bold text-center text-green-500">AINDA COM DÚVIDAS?</h2>
-        <div class="space-y-6">
+        <h2 class="mb-4 text-2xl font-bold text-center text-green-500 md:mb-10 md:text-4xl">AINDA COM DÚVIDAS?</h2>
+        <div class="p-4 space-y-6 md:p-0">
             {{ range .Params.faq }}
             <div>
                 <h3 class="mb-2 font-bold text-md text-neutral-800">{{ .question }}</h3>
