@@ -1,9 +1,5 @@
 {
 	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/bep/hugo-starter-tailwind-basic.git"
-	},
 	"devDependencies": {
 		"@tailwindcss/typography": "^0.5.9",
 		"autoprefixer": "^10.4.14",
@@ -11,6 +7,6 @@
 		"postcss-cli": "^10.1.0",
 		"tailwindcss": "^3.3.2"
 	},
-	"name": "hugo-starter-tailwind-basic",
-	"version": "0.1.0"
+	"name": "hugo-bussola-ladyleve",
+	"version": "1.0.0"
 }

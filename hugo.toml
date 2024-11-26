@@ -13,6 +13,16 @@ disableKinds = ["section", "taxonomy", "term"]
     source = "hugo_stats.json"
     target = "assets/watching/hugo_stats.json"
 
+[minify]
+  minifyOutput = true
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepWhitespace = false
+    [minify.tdewolff.css]
+      keepCSS2 = true
+    [minify.tdewolff.js]
+      keepVarNames = false
+
 [build]
   writeStats = true
   [[build.cachebusters]]
