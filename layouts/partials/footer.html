@@ -45,4 +45,10 @@
             <p class="text-sm">{{ now.Format "2006" }}&copy; <span class="font-bold">Lady Leve</span>. Todos os direitos reservados.</p>
         </div>
     </div>
+
+    {{ $js := resources.Get "js/main.js" }}
+    {{ if hugo.IsProduction }}
+        {{ $js = $js | minify | fingerprint }}
+    {{ end }}
+    <script src="{{ $js.RelPermalink }}"></script>
 </footer>
