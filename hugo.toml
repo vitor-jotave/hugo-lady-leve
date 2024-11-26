@@ -37,3 +37,13 @@ disableKinds = ["section", "taxonomy", "term"]
   [[build.cachebusters]]
     source = "assets/.*\\.(.*)$"
     target = "$1"
+
+[imaging]
+  quality = 75
+  resampleFilter = "Lanczos"
+
+[server]
+  [[server.headers]]
+    for = '/**'
+    [server.headers.values]
+      Content-Security-Policy = 'default-src "self";'
