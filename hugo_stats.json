@@ -31,7 +31,6 @@
     ],
     "classes": [
       "absolute",
-      "aspect-video",
       "bg-black",
       "bg-green-500",
       "bg-neutral-900",
@@ -103,9 +102,6 @@
       "md:text-[40px]",
       "md:text-left",
       "md:w-auto",
-      "min-h-[240px]",
-      "min-h-[360px]",
-      "min-h-[60px]",
       "min-h-screen",
       "mt-10",
       "mt-12",
