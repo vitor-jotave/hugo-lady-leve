@@ -11,7 +11,7 @@
         </svg>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <div class="max-w-5xl px-4 pb-8 mx-auto">
 
         <div class="max-w-5xl pt-4 mx-auto mb-12 text-center">
@@ -30,22 +30,15 @@
                     <div class="w-full">
                         {{ $hero := .Resources.GetMatch .Params.hero_image }}
                         {{ with $hero }}
-                            {{ $image1024 := .Resize "1024x webp q80 Lanczos" | images.Filter (images.Contrast 29) }} 
-                            {{ $image768 := .Resize "768x webp q80 Lanczos" | images.Filter (images.Contrast 29) }}
-                            {{ $image640 := .Resize "640x webp q80 Lanczos" | images.Filter (images.Contrast 29) }}
-                            <img src="{{ $image1024.RelPermalink }}"
-                                 srcset="{{ $image640.RelPermalink }} 640w,
+                        {{ $image1024 := .Resize "1024x webp q80 Lanczos" | images.Filter (images.Contrast 29) }}
+                        {{ $image768 := .Resize "768x webp q80 Lanczos" | images.Filter (images.Contrast 29) }}
+                        {{ $image640 := .Resize "640x webp q80 Lanczos" | images.Filter (images.Contrast 29) }}
+                        <img src="{{ $image1024.RelPermalink }}" srcset="{{ $image640.RelPermalink }} 640w,
                                          {{ $image768.RelPermalink }} 768w,
-                                         {{ $image1024.RelPermalink }} 1024w"
-                                 sizes="(max-width: 640px) 640px,
+                                         {{ $image1024.RelPermalink }} 1024w" sizes="(max-width: 640px) 640px,
                                         (max-width: 768px) 768px,
-                                        1024px"
-                                 alt="Lady Leve Products"
-                                 width="{{ $image1024.Width }}"
-                                 height="{{ $image1024.Height }}"
-                                 loading="eager"
-                                 decoding="async"
-                                 class="w-full">
+                                        1024px" alt="Lady Leve Products" width="{{ $image1024.Width }}"
+                            height="{{ $image1024.Height }}" loading="lazy" decoding="async" class="w-full">
                         {{ end }}
                     </div>
                 </div>
@@ -79,26 +72,22 @@
                 {{ $video := . }}
                 {{ $thumbnailURL := printf "https://img.youtube.com/vi/%s/maxresdefault.jpg" .id }}
                 {{ with resources.GetRemote $thumbnailURL }}
-                    {{ $processedThumb := .Resize "640x360 webp q80" }}
-                    <div class="relative w-full overflow-hidden shadow-lg bg-neutral-900 youtube-video-container"
-                        style="aspect-ratio: 16/9;"
-                        data-video-id="{{ $video.id }}" 
-                        data-video-title="{{ $video.title }}">
-                        <img src="{{ $processedThumb.RelPermalink }}" 
-                             alt="{{ $video.title }}"
-                             width="640"
-                             height="360"
-                             loading="lazy"
-                             decoding="async"
-                             class="absolute top-0 left-0 object-cover w-full h-full">
-                        <button class="absolute inset-0 flex items-center justify-center w-full h-full transition-opacity bg-black bg-opacity-50 hover:bg-opacity-40">
-                            <svg class="w-20 h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 158 110">
-                                <path class="hover:fill-red-500" fill="rgba(0,0,0,.65)"
-                                    d="m154.4 17.5c-1.8-6.7-7.1-12-13.9-13.8-12.3-3.2-61.5-3.2-61.5-3.2s-48.3-0.2-60.6 3c-6.8 1.8-13.3 7.3-15.1 14-3.3 12.2-3 37.5-3 37.5s-0.3 25.3 3 37.5c1.8 6.7 8.4 12.2 15.1 14 12.3 3.3 60.6 3 60.6 3s48.3 0.2 60.6-3c6.8-1.8 13.1-7.3 14.9-14 3.3-12.1 3.3-37.5 3.3-37.5s-0.1-25.3-3.4-37.5z" />
-                                <polygon fill="#fff" points="63.9 79.2 103.2 55 63.9 30.8" />
-                            </svg>
-                        </button>
-                    </div>
+                {{ $processedThumb := .Resize "640x360 webp q80" }}
+                <div class="relative w-full overflow-hidden shadow-lg bg-neutral-900 youtube-video-container"
+                    style="aspect-ratio: 16/9;" data-video-id="{{ $video.id }}" data-video-title="{{ $video.title }}">
+                    <img src="{{ $processedThumb.RelPermalink }}" alt="{{ $video.title }}" width="640" height="360"
+                        loading="lazy" decoding="async" class="absolute top-0 left-0 object-cover w-full h-full">
+                    <button
+                        class="absolute inset-0 flex items-center justify-center w-full h-full transition-opacity bg-black bg-opacity-50 hover:bg-opacity-40"
+                        aria-label="Reproduzir vídeo {{ $video.title }}"
+                        title="Reproduzir vídeo {{ $video.title }}">
+                        <svg class="w-20 h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 158 110" aria-hidden="true">
+                            <path class="hover:fill-red-500" fill="rgba(0,0,0,.65)"
+                                d="m154.4 17.5c-1.8-6.7-7.1-12-13.9-13.8-12.3-3.2-61.5-3.2-61.5-3.2s-48.3-0.2-60.6 3c-6.8 1.8-13.3 7.3-15.1 14-3.3 12.2-3 37.5-3 37.5s-0.3 25.3 3 37.5c1.8 6.7 8.4 12.2 15.1 14 12.3 3.3 60.6 3 60.6 3s48.3 0.2 60.6-3c6.8-1.8 13.1-7.3 14.9-14 3.3-12.1 3.3-37.5 3.3-37.5s-0.1-25.3-3.4-37.5z" />
+                            <polygon fill="#fff" points="63.9 79.2 103.2 55 63.9 30.8" />
+                        </svg>
+                    </button>
+                </div>
                 {{ end }}
                 {{ end }}
             </div>
@@ -146,22 +135,22 @@
         <div class="grid max-w-5xl grid-cols-1 gap-4 pb-12 mx-auto md:grid-cols-2 lg:grid-cols-4">
             {{ $length := len .Params.products }}
             {{ range $index, $product := .Params.products }}
-            <div class="p-3 py-5 text-center bg-white border rounded-lg shadow-lg md:order-none" style="order: {{ sub $length $index }}">
+            <div class="p-3 py-5 text-center bg-white border rounded-lg shadow-lg md:order-none"
+                style="order: {{ sub $length $index }}">
                 <h3 class="mb-2 text-3xl font-black text-orange-500 font-system">{{ .product_title }}</h3>
-                <h4 class="mt-4 mb-[-24px] md:mt-0 text-sm font-bold text-white bg-green-500 md:mb-2 font-system">{{ .product_subtitle }}</h4>
-                <img src="{{ .product_image }}" alt="{{ .product_title }}" width="400" height="400" class="w-full mb-4">
-                <p class="text-xs font-extrabold text-green-500">DE <del class="text-red-500">R$ {{ .product_discount }}</del> POR APENAS</p>
+                <h4 class="mt-4 mb-[-24px] md:mt-0 text-sm font-bold text-white bg-green-500 md:mb-2 font-system">{{
+                    .product_subtitle }}</h4>
+                <img src="{{ .product_image }}" alt="{{ .product_title }}" width="400" height="400" class="w-full mb-4" loading="lazy">
+                <p class="text-xs font-extrabold text-green-500">DE <del class="text-red-500">R$ {{ .product_discount
+                        }}</del> POR APENAS</p>
                 <p class="text-[40px] font-extrabold text-green-500">R$ {{ .product_price }}</p>
                 <p class="mb-4 text-sm font-bold text-neutral-800">ou 12x de R$ {{ .product_divided }}</p>
                 <a href="{{ .product_link }}"
                     class="block w-full py-4 text-3xl font-bold text-white uppercase transition-colors bg-orange-500 rounded-lg font-system hover:bg-orange-600">
                     COMPRAR
                 </a>
-                <img src="/images/Frete-gratis.png" 
-                     alt="Frete Grátis" 
-                     width="144" 
-                     height="20" 
-                     class="mx-auto mt-3 bg-yellow-500 w-36">
+                <img src="/images/Frete-gratis.png" alt="Frete Grátis" width="144" height="20"
+                    class="mx-auto mt-3 bg-yellow-500 w-36" loading="lazy">
             </div>
             {{ end }}
         </div>
@@ -179,12 +168,12 @@
     <!-- Garantia -->
     <div class="flex flex-col items-center justify-center gap-8 p-4 my-8 md:p-0 md:my-16 md:flex-row md:gap-16">
         <div>
-            <img src="/images/garantia30.png.webp" alt="30 dias garantia" width="400" height="400">
+            <img src="/images/garantia30.png.webp" alt="30 dias garantia" width="400" height="400" loading="lazy">
         </div>
         <div>
             <p class="text-2xl font-extrabold text-center text-green-500 md:text-4xl">
                 Se por algum motivo você<br>
-                não ficar satisfeito com<br>
+                não ficar satisfeito com<br> 
                 Lady Leve, devolvemos<br>
                 100% do seu dinheiro!
             </p>
