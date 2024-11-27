@@ -1,5 +1,6 @@
 ---
 title: Lady Leve - Oferta Especial
+description: "Lady Leve é um suplemento natural que auxilia na redução de medidas com apenas 2 cápsulas por dia. Resultados comprovados com saúde e segurança. Entrega para todo Brasil com garantia de satisfação de 30 dias."
 hero_image: images/capa-lady-leve_1024x639.webp
 ogImage: images/capa-lady-leve_1024x639.webp
 twitterImage: images/capa-lady-leve_1024x639.webp

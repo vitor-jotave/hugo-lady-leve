@@ -1,6 +1,6 @@
 baseURL = "https://hugo.joaovitor.art"
 
-disableKinds = ["section", "taxonomy", "term"]
+disableKinds = ["taxonomy", "term"]
 
 [module]
   [module.hugoVersion]
@@ -47,3 +47,8 @@ disableKinds = ["section", "taxonomy", "term"]
   [security.http]
     methods = ['GET']
     urls = ['https://img.youtube.com/.+']
+
+[sitemap]
+  changefreq = "monthly"
+  filename = "sitemap.xml"
+  priority = 0.5
