@@ -30,7 +30,7 @@
                     <div class="w-full">
                         {{ $hero := .Resources.GetMatch .Params.hero_image }}
                         {{ with $hero }}
-                            {{ $image1024 := .Resize "1024x webp q80 Lanczos" | images.Filter (images.Contrast 29) }}
+                            {{ $image1024 := .Resize "1024x webp q80 Lanczos" | images.Filter (images.Contrast 29) }} 
                             {{ $image768 := .Resize "768x webp q80 Lanczos" | images.Filter (images.Contrast 29) }}
                             {{ $image640 := .Resize "640x webp q80 Lanczos" | images.Filter (images.Contrast 29) }}
                             <img src="{{ $image1024.RelPermalink }}"
