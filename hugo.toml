@@ -48,6 +48,9 @@ disableKinds = ["taxonomy", "term"]
     methods = ['GET']
     urls = ['https://img.youtube.com/.+']
 
+[security.funcs]
+  getenv = ['PIXEL_ID', 'TAGMANAGER_ID']
+
 [sitemap]
   changefreq = "monthly"
   filename = "sitemap.xml"
