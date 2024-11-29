@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    {{ partial "header" . }}
-  </head>
-  <body>
-      {{ block "main" . }}{{ end }}
-      {{ partial "footer" . }}
-  </body>
+
+<head>
+  {{ partial "header" . }}
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58RW4QM6" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  {{ block "main" . }}{{ end }}
+  {{ partial "footer" . }}
+</body>
+
 </html>

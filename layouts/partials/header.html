@@ -21,17 +21,32 @@
 {{/* Font optimization */}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap&display=swap&display=optional">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap&display=optional" media="print" onload="this.media='all'">
+<link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap&display=swap&display=optional">
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap&display=optional"
+    media="print" onload="this.media='all'">
 <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap">
 </noscript>
+
+<!-- Google Tag Manager -->
+<script>(function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-58RW4QM6');</script>
+<!-- End Google Tag Manager -->
 
 {{/* styles */}}
 {{ $options := dict "inlineImports" true }}
 {{ $styles := resources.Get "css/styles.css" }}
 {{ $styles = $styles | resources.PostCSS $options }}
 {{ if hugo.IsProduction }}
-    {{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
+{{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
 {{ end }}
 <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
