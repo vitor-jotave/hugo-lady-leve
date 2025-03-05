@@ -1,0 +1,11 @@
+{
+    "checkouts": [
+      {
+        "id": 1,
+        "price": "R$ 000",
+        "description": "Descrição do produto",
+        "title": "Checkout 01",
+        "url_checkout": "/entrega"
+      }
+    ]
+  }
